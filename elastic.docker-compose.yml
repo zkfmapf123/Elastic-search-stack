@@ -71,10 +71,12 @@ services:
     container_name: metricbeat
     environment:
       ELASTICSEARCH_HOSTS: http://es-master-1:9200
+    restart: always
     volumes:
       - ./config/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml
 
 ## Common-network
 networks:
   default:
-    name: logging
+    external:
+      name: elk-network
