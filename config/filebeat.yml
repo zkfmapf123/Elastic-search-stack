@@ -1,0 +1,42 @@
+filebeat.config.modules:
+  enabled: true ## 파일비트 모듈 활성화 여부
+  reload.enabled: false ## 설정 재로드 활성화 여부
+  reload.period: 10s ## 재로드 주기
+  path: ${path.config}/modules.d/*.yml ## 모듈 설정 파일 경로
+
+## nginx
+filebeat.inputs:
+  ## log (deprecated)
+  - type: filestream ## 입력유형 설정 (log, stdin, filestream, tcp, udp, stdinreader, httpjson)
+    paths:
+      - /var/log/nginx/*.log ## 로그파일경로
+    fields:
+      nginx: true
+
+## nginx module
+filebeat.modules:
+  - module: nginx
+    access:
+      enabled: true
+      var.paths:
+        - /var/log/nginx/access.log
+    error:
+      enabled: true
+      var.paths:
+        - /var/log/nginx/error.log
+    ingress_controller:
+      enabled: false
+
+setup:
+  kibana:
+    host: "http://kibana:5601"
+  dashboards:
+    enabled: true
+
+output:
+  elasticsearch:
+    enabled: false
+    hosts: ["es-master-1:9200"]
+  logstash:
+    enabled: true
+    hosts: ["logstash:5044"]
