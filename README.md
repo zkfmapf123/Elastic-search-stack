@@ -1,5 +1,7 @@
 # ELK Stack
 
+![elk](./public/elk.png)
+
 ## Todo (Local)
 
 - [x] Elastic Search
