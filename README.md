@@ -1,6 +1,7 @@
-## ELK Stack 
+# ELK Stack 
 
 ## Todo (Local)
+
     - [x] Elastic Search
         - Master (9200)
         - Slaves (1,2) -> 9300
@@ -11,6 +12,7 @@
     - [x] LogStash
         - input -> filter -> output pipeline
         - jRuby
+
         ```
             input {
                 ...
@@ -26,10 +28,12 @@
         ```
 
 ## Todo (Cloud)
+
     - EC2 ELK Pipeline
     - ECS ELK Pipeline
 
 ## Beat Products
+
     - AuditBeat (Linux의 Audit Message)
     - <b>FileBeat (파일의 있는 정보) </b>
     - <b>MetricBeat (System Metric 정보) </b>

@@ -1,2 +1,6 @@
 volumes
 *.json
+
+.terraform
+.terraform.lock.hcl
+terraform.*
