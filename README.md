@@ -47,3 +47,4 @@
 ## Reference
 
 - <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html#input-plugins"> Logstash Input Plugins </a>
+- <a href="https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli-services-ec2-instances.html#listing-instances"> AWS CLI for EC2 Instance </a>

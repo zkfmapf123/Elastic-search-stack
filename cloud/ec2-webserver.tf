@@ -1,10 +1,10 @@
-resource "aws_security_group" "es-sg" {
-  name   = "es-sg"
+resource "aws_security_group" "webserver-sg" {
+  name   = "webserver-sg"
   vpc_id = local.vpc_id
 
   ingress {
-    from_port   = "9200"
-    to_port     = "9200"
+    from_port   = 80
+    to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -17,28 +17,23 @@ resource "aws_security_group" "es-sg" {
   }
 
   tags = {
-    Name = "es-sg"
+    Name = "webserver-sg"
   }
 }
 
-module "es-instance" {
+module "webserver-instance" {
   source = "zkfmapf123/simpleEC2/lee"
 
-  instance_name      = "es-instance"
+  instance_name      = "webserver-instance"
   instance_region    = local.region
   instance_subnet_id = local.subnet_id
-  instance_sg_ids    = [aws_security_group.ssh-sg.id, aws_security_group.es-sg.id]
+  instance_sg_ids    = [aws_security_group.ssh-sg.id, aws_security_group.webserver-sg.id]
 
   instance_ip_attr = {
     is_public_ip  = true
     is_eip        = true
     is_private_ip = false
     private_ip    = ""
-  }
-
-  instance_root_device = {
-    size = 50
-    type = "gp3"
   }
 
   instance_key_attr = {
