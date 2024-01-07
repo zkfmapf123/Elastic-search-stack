@@ -2,6 +2,14 @@
 
 ![elk](./public/elk.png)
 
+## Execute 
+
+```sh
+    cd cloud
+    terraform init && terraform apply
+    make scp-up
+```
+
 ## Todo (Local)
 
 - [x] Elastic Search
@@ -44,7 +52,13 @@
 - WinlogBeat (윈도우 로그)
 - <b>FunctionBeat</b> (Serverless 형태로 데이터 Shipping)
 
+
+
 ## Reference
 
 - <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html#input-plugins"> Logstash Input Plugins </a>
 - <a href="https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli-services-ec2-instances.html#listing-instances"> AWS CLI for EC2 Instance </a>
+
+## 회고...
+
+[REMINDER](./REMINDER.md)
